@@ -1,6 +1,6 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var Burger = sequelize.define('Burgers', {
+  var Burgers = sequelize.define('Burgers', {
     name: DataTypes.STRING,
     devoured: DataTypes.BOOLEAN
   }, {
@@ -10,5 +10,5 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
-  return Burger;
+  return Burgers;
 };

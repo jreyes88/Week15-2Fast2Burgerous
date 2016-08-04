@@ -3,6 +3,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var models = require('./models');
 var methodOverride = require('method-override');
 
 // Use Body Parser with Express middleware
@@ -21,8 +22,6 @@ app.set('view engine', 'handlebars');
 
 // ============== Models (Routing??) ============== //
 
-var models = require('./models');
-
 app.get('/', function(req,res){
 	res.redirect('/burgers');
 });
@@ -31,18 +30,13 @@ app.get('/burgers', function(req, res){
 	res.render('partials/allburgers');
 });
 
-app.post('/user/create', function(req, res){
+app.post('/burgers/create', function(req, res){
 	console.log(req.body);
-	// models.Users.findOne({where: { email: req.body.newemail}})
-	// .then(function(users){
-	// 	console.log(JSON.stringify(users));
-	// })
-	models.Users.create({
-		name: req.body.newname,
-		email: req.body.newemail,
-		password: sha1(req.body.newpassword)
+	
+	models.Burgers.create({
+		name: req.body.name
 	});
-	res.send('Thank you for signing up!');
+	res.redirect('/burgers');
 });
 
 // ============== end of Models ============== //
