@@ -20,7 +20,7 @@
         <div id="BurgersOnPlate">
             <h2>Burgers on your plate!</h2>
             <ul>
-                {{#each burgers}}
+                {{#each Burgers}}
                     {{#unless this.devoured}}
                         <li class="burgerList">
                             {{this.name}}
@@ -38,7 +38,7 @@
         <div id="burgersDevoured">
             <h2>Burgers that are devoured!</h2>
             <ul>
-                {{#each burgers}}
+                {{#each Burgers}}
                     {{#if this.devoured}}
                         <li>
                             {{this.name}}
